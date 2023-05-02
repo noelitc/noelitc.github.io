@@ -19,7 +19,7 @@ limitations under the License.
 
 import { CastQueue } from './queuing.js';
 import { MediaFetcher } from './media_fetcher.js';
-import { AdsTracker, SenderTracker, ContentTracker } from './cast_analytics.js';
+//import { AdsTracker, SenderTracker, ContentTracker } from './cast_analytics.js';
 
 /**
  * @fileoverview This sample demonstrates how to build your own Web Receiver for
@@ -34,7 +34,7 @@ import { AdsTracker, SenderTracker, ContentTracker } from './cast_analytics.js';
  * Convenience variables to access the CastReceiverContext and PlayerManager.
  */
 const context = cast.framework.CastReceiverContext.getInstance();
-const playerManager = context.getPlayerManager();
+//const playerManager = context.getPlayerManager();
 
 /*
  * Constant to be used for fetching media by entity from sample repository.
@@ -54,18 +54,18 @@ const LOG_RECEIVER_TAG = 'Receiver';
  * top left corner and show debug overlay.
  */
  context.addEventListener(cast.framework.system.EventType.READY, () => {
-  // if (!castDebugLogger.debugOverlayElement_) {
-  //   /**
-  //    *  Enable debug logger and show a 'DEBUG MODE' tag at
-  //    *  top left corner.
-  //    */
-  //     castDebugLogger.setEnabled(true);
+  if (!castDebugLogger.debugOverlayElement_) {
+    /**
+     *  Enable debug logger and show a 'DEBUG MODE' tag at
+     *  top left corner.
+     */
+      castDebugLogger.setEnabled(true);
 
-  //   /**
-  //    * Show debug overlay.
-  //    */
-  //     castDebugLogger.showDebugLogs(true);
-  // }
+    /**
+     * Show debug overlay.
+     */
+      castDebugLogger.showDebugLogs(true);
+  }
 });
 
 /*
@@ -92,7 +92,7 @@ castDebugLogger.loggerLevelByTags[LOG_RECEIVER_TAG] =
 /*
  * Example of how to listen for events on playerManager.
  */
-playerManager.addEventListener(
+/*playerManager.addEventListener(
   cast.framework.events.EventType.ERROR, (event) => {
     castDebugLogger.error(LOG_RECEIVER_TAG,
       'Detailed Error Code - ' + event.detailedErrorCode);
@@ -101,7 +101,7 @@ playerManager.addEventListener(
         'LOAD_FAILED: Verify the load request is set up ' +
         'properly and the media is able to play.');
     }
-});
+});*/
 
 /*
  * Example analytics tracking implementation. To enable this functionality see
@@ -109,9 +109,9 @@ playerManager.addEventListener(
  * complete uncomment the the calls to startTracking below to enable each
  * Tracker.
  */
-const adTracker = new AdsTracker();
-const senderTracker = new SenderTracker();
-const contentTracker = new ContentTracker();
+//const adTracker = new AdsTracker();
+//const senderTracker = new SenderTracker();
+//const contentTracker = new ContentTracker();
 // adTracker.startTracking();
 // senderTracker.startTracking();
 // contentTracker.startTracking();
@@ -122,35 +122,35 @@ const contentTracker = new ContentTracker();
  * MediaInformation to be modified.
  * @return {Promise} An empty promise.
  */
-function addBreaks(mediaInformation) {
-  castDebugLogger.debug(LOG_RECEIVER_TAG, "addBreaks: " +
-    JSON.stringify(mediaInformation));
-  return MediaFetcher.fetchMediaById('fbb_ad')
-  .then((clip1) => {
-    mediaInformation.breakClips = [
-      {
-        id: 'fbb_ad',
-        title: clip1.title,
-        contentUrl: clip1.stream.dash,
-        contentType: 'application/dash+xml',
-        whenSkippable: 5
-      }
-    ];
+// function addBreaks(mediaInformation) {
+//   castDebugLogger.debug(LOG_RECEIVER_TAG, "addBreaks: " +
+//     JSON.stringify(mediaInformation));
+//   return MediaFetcher.fetchMediaById('fbb_ad')
+//   .then((clip1) => {
+//     mediaInformation.breakClips = [
+//       {
+//         id: 'fbb_ad',
+//         title: clip1.title,
+//         contentUrl: clip1.stream.dash,
+//         contentType: 'application/dash+xml',
+//         whenSkippable: 5
+//       }
+//     ];
 
-    mediaInformation.breaks = [
-      {
-        id: 'pre-roll',
-        breakClipIds: ['fbb_ad'],
-        position: 0
-      }
-    ];
-  });
-}
+//     mediaInformation.breaks = [
+//       {
+//         id: 'pre-roll',
+//         breakClipIds: ['fbb_ad'],
+//         position: 0
+//       }
+//     ];
+//   });
+// }
 
 /*
  * Intercept the LOAD request to load and set the contentUrl.
  */
-playerManager.setMessageInterceptor(
+/* playerManager.setMessageInterceptor(
   cast.framework.messages.MessageType.LOAD, loadRequestData => {
     castDebugLogger.debug(LOG_RECEIVER_TAG,
       `loadRequestData: ${JSON.stringify(loadRequestData)}`);
@@ -207,12 +207,12 @@ playerManager.setMessageInterceptor(
     });
   }
 );
-
+ */
 
 /*
  * Set the control buttons in the UI controls.
  */
-const controls = cast.framework.ui.Controls.getInstance();
+/* const controls = cast.framework.ui.Controls.getInstance();
 controls.clearDefaultSlotAssignments();
 
 // Assign buttons to control slots.
@@ -232,7 +232,7 @@ controls.assignButton(
   cast.framework.ui.ControlsSlot.SLOT_SECONDARY_2,
   cast.framework.ui.ControlsButton.QUEUE_NEXT
 );
-
+ */
 const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
@@ -240,6 +240,7 @@ context.addCustomMessageListener(CHANNEL, onMessageReceived);
 context.start();
 
 function onMessageReceived(customEvent) {
-  document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
+
+  //document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
