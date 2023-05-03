@@ -236,10 +236,11 @@ controls.assignButton(
 const CHANNEL = 'urn:x-cast:cast.unity.demo';
 
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
-
+document.getElementById('message').innerHTML ="testing";
 context.start();
 
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
+  document.getElementById('message').innerHTML = customEvent.data.message;
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
