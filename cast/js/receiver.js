@@ -311,19 +311,20 @@ const canvas = document.getElementById('mycanvas');
                 richText.x = 50;
                 richText.y = 220;
                 
-                PIXI.Assets.load('./bitmap-font/desyrel.xml').then(() => {
-               bitmapFontText = new PIXI.BitmapText(
-                        'Waiting for Message!', {
-                fontName: 'Desyrel',
+               PIXI.Assets.load('./bitmap-font/desyrel.xml').then(() => {
+     bitmapFontText = new PIXI.BitmapText(
+        'bitmap fonts are supported!\nWoo yay!', {
+            fontName: 'Desyrel',
             fontSize: 55,
             align: 'left',
         },
     );
-                
+
     bitmapFontText.x = 50;
     bitmapFontText.y = 200;
 
     app.stage.addChild(bitmapFontText);
+});
 
                 app.stage.addChild(richText);
 
