@@ -330,12 +330,12 @@ const canvas = document.getElementById('mycanvas');
                
                      app.ticker.add(animate);
             
-
+                }
             function animate() {
                 img.x = app.renderer.screen.width / 2;
                 img.y = app.renderer.screen.height / 2;
             }
-            }
+            
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
   document.getElementById('message').innerHTML = customEvent.data.message;
