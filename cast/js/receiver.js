@@ -327,23 +327,9 @@ const canvas = document.getElementById('mycanvas');
 
                 app.stage.addChild(richText);
 
-                const skewStyle = new PIXI.TextStyle({
-                    fontFamily: 'Arial',
-                    dropShadow: true,
-                    dropShadowAlpha: 0.8,
-                    dropShadowAngle: 2.1,
-                    dropShadowBlur: 4,
-                    dropShadowColor: '0x111111',
-                    dropShadowDistance: 10,
-                    fill: ['#ffffff'],
-                    stroke: '#004620',
-                    fontSize: 60,
-                    fontWeight: 'lighter',
-                    lineJoin: 'round',
-                    strokeThickness: 12,
-                });
+               
                      app.ticker.add(animate);
-            }
+            
 
             function animate() {
                 img.x = app.renderer.screen.width / 2;
