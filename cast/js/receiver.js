@@ -238,9 +238,108 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
 document.getElementById('message').innerHTML ="testing";
 context.start();
+const canvas = document.getElementById('mycanvas');
 
+            const app = new PIXI.Application({
+                view: canvas,
+                width: window.innerWidth, 
+                height: window.innerHeight
+            });
+
+            console.log(PIXI.utils.TextureCache);
+
+            let loader = PIXI.Loader.shared;
+
+            loader.add("guy", "guy.json");
+            loader.add("bg", "sprite2.png");
+            loader.onProgress.add(handleLoadProgress);
+            loader.onLoad.add(handleLoadAsset);
+            loader.onError.add(handleLoadError);
+            loader.load(handleLoadComplete);
+
+            let img;
+
+            function handleLoadProgress(loader, resource) {
+                console.log(loader.progress + "% loaded");
+            }
+
+            function handleLoadAsset(loader, resource) {
+                console.log("asset loaded " + resource.name);
+            }
+
+            function handleLoadError() {
+                console.error("load error");
+            }
+
+            function handleLoadComplete() {
+                let texture = loader.resources.guy.spritesheet;
+                img = new PIXI.AnimatedSprite(texture.animations.pixels_large);
+                img.anchor.x = 0.5;
+                img.anchor.y = 0.5;
+                app.stage.addChild(img);
+
+                img.animationSpeed = 0.1;
+                img.play();
+
+                img.onLoop = () => {
+                    console.log('loop');
+                }
+                img.onFrameChange = () => {
+                    console.log('currentFrame', img.currentFrame);
+                }
+                img.onComplete = () => {
+                    console.log('done');
+                }
+                const style = new PIXI.TextStyle({
+                                fontFamily: 'Arial',
+                                fontSize: 36,
+                                fontStyle: 'italic',
+                                fontWeight: 'bold',
+                                fill: ['#ffffff', '#00ff99'], // gradient
+                                stroke: '#4a1850',
+                                strokeThickness: 5,
+                                dropShadow: true,
+                                dropShadowColor: '#000000',
+                                dropShadowBlur: 4,
+                                dropShadowAngle: Math.PI / 6,
+                                dropShadowDistance: 6,
+                                wordWrap: true,
+                                wordWrapWidth: 440,
+                                lineJoin: 'round',
+                            });
+                const richText = new PIXI.Text('Welcome to ElfMonn', style);
+                richText.x = 50;
+                richText.y = 220;
+
+                app.stage.addChild(richText);
+
+                const skewStyle = new PIXI.TextStyle({
+                    fontFamily: 'Arial',
+                    dropShadow: true,
+                    dropShadowAlpha: 0.8,
+                    dropShadowAngle: 2.1,
+                    dropShadowBlur: 4,
+                    dropShadowColor: '0x111111',
+                    dropShadowDistance: 10,
+                    fill: ['#ffffff'],
+                    stroke: '#004620',
+                    fontSize: 60,
+                    fontWeight: 'lighter',
+                    lineJoin: 'round',
+                    strokeThickness: 12,
+                });
+                     app.ticker.add(animate);
+            }
+
+            function animate() {
+                img.x = app.renderer.screen.width / 2;
+                img.y = app.renderer.screen.height / 2;
+            }
+      
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
   document.getElementById('message').innerHTML = customEvent.data.message;
+  richText.text = customEvent.data.message;
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
+
