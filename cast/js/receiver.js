@@ -319,6 +319,11 @@ const canvas = document.getElementById('mycanvas');
     bitmapFontText = new PIXI.BitmapText("Hello World", { fontName: "foo" });
     bitmapFontText.x = 50;
     bitmapFontText.y = 100;
+                bitstyle.fill = 'red';
+PIXI.BitmapFont.from("foo", bitstyle);
+bitmapFontText.text="Waiting....";
+// Update text
+bitmapFontText.updateText();
 
     app.stage.addChild(bitmapFontText);
 
