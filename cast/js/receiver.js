@@ -307,7 +307,7 @@ const canvas = document.getElementById('mycanvas');
                                 wordWrapWidth: 440,
                                 lineJoin: 'round',
                             });
-                const richText = new PIXI.Text('Welcome to ElfMonn', style);
+                let richText = new PIXI.Text('Welcome to ElfMonn', style);
                 richText.x = 50;
                 richText.y = 220;
 
