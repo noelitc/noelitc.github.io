@@ -319,7 +319,7 @@ const canvas = document.getElementById('mycanvas');
             align: 'left',
         },
     );
-
+                
     bitmapFontText.x = 50;
     bitmapFontText.y = 200;
 
@@ -335,7 +335,7 @@ const canvas = document.getElementById('mycanvas');
                 img.x = app.renderer.screen.width / 2;
                 img.y = app.renderer.screen.height / 2;
             }
-      
+            }
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
   document.getElementById('message').innerHTML = customEvent.data.message;
