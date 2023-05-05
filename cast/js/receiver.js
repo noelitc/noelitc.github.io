@@ -318,7 +318,7 @@ const canvas = document.getElementById('mycanvas');
 // Apply the font to our text
     bitmapFontText = new PIXI.BitmapText("Hello World", { fontName: "foo" });
     bitmapFontText.x = 50;
-    bitmapFontText.y = 200;
+    bitmapFontText.y = 100;
 
     app.stage.addChild(bitmapFontText);
 
