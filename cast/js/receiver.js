@@ -310,6 +310,20 @@ const canvas = document.getElementById('mycanvas');
                 let richText = new PIXI.Text('Welcome to ElfMonn', style);
                 richText.x = 50;
                 richText.y = 220;
+                 let bitmapFontText;
+                PIXI.Assets.load('examples/assets/bitmap-font/desyrel.xml').then(() => {
+               bitmapFontText = new PIXI.BitmapText(
+                        'Waiting for Message!', {
+                fontName: 'Desyrel',
+            fontSize: 55,
+            align: 'left',
+        },
+    );
+
+    bitmapFontText.x = 50;
+    bitmapFontText.y = 200;
+
+    app.stage.addChild(bitmapFontText);
 
                 app.stage.addChild(richText);
 
@@ -339,7 +353,7 @@ const canvas = document.getElementById('mycanvas');
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
   document.getElementById('message').innerHTML = customEvent.data.message;
-  richText.text = customEvent.data.message;
+  bitmapFontText.text = customEvent.data.message;
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
 
