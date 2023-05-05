@@ -311,7 +311,7 @@ const canvas = document.getElementById('mycanvas');
                 richText.x = 50;
                 richText.y = 220;
                  let bitmapFontText;
-                PIXI.Assets.load('bitmap-font/desyrel.xml').then(() => {
+                PIXI.Assets.load('./bitmap-font/desyrel.xml').then(() => {
                bitmapFontText = new PIXI.BitmapText(
                         'Waiting for Message!', {
                 fontName: 'Desyrel',
