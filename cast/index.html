@@ -29,112 +29,70 @@ Cast.
 </head>
 
 <body>
- <canvas id="mycanvas"></canvas>
-       
+<canvas id="mycanvas"></canvas>
+        <script src="pixi6.js"></script>
         <script type="text/javascript">
-          function clock() {
-  const now = new Date();
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  ctx.save();
-  ctx.clearRect(0, 0, 150, 150);
-  ctx.translate(75, 75);
-  ctx.scale(0.4, 0.4);
-  ctx.rotate(-Math.PI / 2);
-  ctx.strokeStyle = "black";
-  ctx.fillStyle = "white";
-  ctx.lineWidth = 8;
-  ctx.lineCap = "round";
+            const canvas = document.getElementById('mycanvas');
 
-  // Hour marks
-  ctx.save();
-  for (let i = 0; i < 12; i++) {
-    ctx.beginPath();
-    ctx.rotate(Math.PI / 6);
-    ctx.moveTo(100, 0);
-    ctx.lineTo(120, 0);
-    ctx.stroke();
-  }
-  ctx.restore();
+            const app = new PIXI.Application({
+                view: canvas,
+                width: window.innerWidth, 
+                height: window.innerHeight
+            });
 
-  // Minute marks
-  ctx.save();
-  ctx.lineWidth = 5;
-  for (let i = 0; i < 60; i++) {
-    if (i % 5 !== 0) {
-      ctx.beginPath();
-      ctx.moveTo(117, 0);
-      ctx.lineTo(120, 0);
-      ctx.stroke();
-    }
-    ctx.rotate(Math.PI / 30);
-  }
-  ctx.restore();
+            console.log(PIXI.utils.TextureCache);
 
-  const sec = now.getSeconds();
-  const min = now.getMinutes();
-  const hr = now.getHours() % 12;
+            let loader = PIXI.Loader.shared;
 
-  ctx.fillStyle = "black";
+            loader.add("guy", "guy.json");
+            loader.add("bg", "sprite2.png");
+            loader.onProgress.add(handleLoadProgress);
+            loader.onLoad.add(handleLoadAsset);
+            loader.onError.add(handleLoadError);
+            loader.load(handleLoadComplete);
 
-  // Write image description
-  canvas.innerText = `The time is: ${hr}:${min}`;
+            let img;
 
-  // Write Hours
-  ctx.save();
-  ctx.rotate(
-    (Math.PI / 6) * hr + (Math.PI / 360) * min + (Math.PI / 21600) * sec
-  );
-  ctx.lineWidth = 14;
-  ctx.beginPath();
-  ctx.moveTo(-20, 0);
-  ctx.lineTo(80, 0);
-  ctx.stroke();
-  ctx.restore();
+            function handleLoadProgress(loader, resource) {
+                console.log(loader.progress + "% loaded");
+            }
 
-  // Write Minutes
-  ctx.save();
-  ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
-  ctx.lineWidth = 10;
-  ctx.beginPath();
-  ctx.moveTo(-28, 0);
-  ctx.lineTo(112, 0);
-  ctx.stroke();
-  ctx.restore();
+            function handleLoadAsset(loader, resource) {
+                console.log("asset loaded " + resource.name);
+            }
 
-  // Write seconds
-  ctx.save();
-  ctx.rotate((sec * Math.PI) / 30);
-  ctx.strokeStyle = "#D40000";
-  ctx.fillStyle = "#D40000";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.moveTo(-30, 0);
-  ctx.lineTo(83, 0);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
-  ctx.stroke();
-  ctx.fillStyle = "rgba(0, 0, 0, 0)";
-  ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
-  ctx.fill();
-  ctx.restore();
+            function handleLoadError() {
+                console.error("load error");
+            }
 
-  ctx.beginPath();
-  ctx.lineWidth = 14;
-  ctx.strokeStyle = "#325FA2";
-  ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
-  ctx.stroke();
+            function handleLoadComplete() {
+                let texture = loader.resources.guy.spritesheet;
+                img = new PIXI.AnimatedSprite(texture.animations.pixels_large);
+                img.anchor.x = 0.5;
+                img.anchor.y = 0.5;
+                app.stage.addChild(img);
 
-  ctx.restore();
+                img.animationSpeed = 0.1;
+                img.play();
 
-  window.requestAnimationFrame(clock);
-}
+                img.onLoop = () => {
+                    console.log('loop');
+                }
+                img.onFrameChange = () => {
+                    console.log('currentFrame', img.currentFrame);
+                }
+                img.onComplete = () => {
+                    console.log('done');
+                }
 
-window.requestAnimationFrame(clock);
+                app.ticker.add(animate);
+            }
+
+            function animate() {
+                img.x = app.renderer.screen.width / 2;
+                img.y = app.renderer.screen.height / 2;
+            }
+      
         </script>
  <p id="message" style="color:red;" >hello </p>
   <main hidden>
