@@ -240,6 +240,7 @@ document.getElementById('message').innerHTML ="testing";
 context.start();
 const canvas = document.getElementById('mycanvas');
  let bitmapFontText;
+
             const app = new PIXI.Application({
                 view: canvas,
                 width: window.innerWidth, 
@@ -311,20 +312,16 @@ const canvas = document.getElementById('mycanvas');
                 richText.x = 50;
                 richText.y = 220;
                 
-               PIXI.Assets.load('./bitmap-font/desyrel.xml').then(() => {
-     bitmapFontText = new PIXI.BitmapText(
-        'bitmap fonts are supported!\nWoo yay!', {
-            fontName: 'Desyrel',
-            fontSize: 55,
-            align: 'left',
-        },
-    );
+                const bitstyle = new PIXI.TextStyle();
+                PIXI.BitmapFont.from("foo", bitstyle);
 
+// Apply the font to our text
+    bitmapFontText = new PIXI.BitmapText("Hello World", { fontName: "foo" });
     bitmapFontText.x = 50;
     bitmapFontText.y = 200;
 
     app.stage.addChild(bitmapFontText);
-});
+
 
                 app.stage.addChild(richText);
 
