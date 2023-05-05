@@ -239,7 +239,7 @@ context.addCustomMessageListener(CHANNEL, onMessageReceived);
 document.getElementById('message').innerHTML ="testing";
 context.start();
 const canvas = document.getElementById('mycanvas');
-
+ let bitmapFontText;
             const app = new PIXI.Application({
                 view: canvas,
                 width: window.innerWidth, 
@@ -310,7 +310,7 @@ const canvas = document.getElementById('mycanvas');
                 let richText = new PIXI.Text('Welcome to ElfMonn', style);
                 richText.x = 50;
                 richText.y = 220;
-                 let bitmapFontText;
+                
                 PIXI.Assets.load('./bitmap-font/desyrel.xml').then(() => {
                bitmapFontText = new PIXI.BitmapText(
                         'Waiting for Message!', {
