@@ -258,7 +258,7 @@ const canvas = document.getElementById('mycanvas');
             loader.onError.add(handleLoadError);
             loader.load(handleLoadComplete);
             PIXI.sound.Sound.from({
-            url: 'story.mp3',
+            url: 'bears_birthday_party.mp3',
             autoPlay: true,
             complete: function() {
             console.log('Sound finished');
