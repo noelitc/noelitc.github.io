@@ -257,13 +257,13 @@ const canvas = document.getElementById('mycanvas');
             loader.onLoad.add(handleLoadAsset);
             loader.onError.add(handleLoadError);
             loader.load(handleLoadComplete);
-            PIXI.sound.Sound.from({
-            url: 'bears_birthday_party.mp3',
-            autoPlay: true,
-            complete: function() {
-            console.log('Sound finished');
-        }
-            });
+          //  PIXI.sound.Sound.from({
+         //   url: 'bears_birthday_party.mp3',
+         //   autoPlay: true,
+         //   complete: function() {
+         //   console.log('Sound finished');
+       // }
+         //   });
             let img;
 
             function handleLoadProgress(loader, resource) {
