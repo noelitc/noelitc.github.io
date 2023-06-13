@@ -101,7 +101,7 @@ Cast.
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+     /* if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
         var meta = document.createElement('meta');
@@ -121,8 +121,10 @@ Cast.
 
         canvas.style.width = "960px";
         canvas.style.height = "600px";
-      }
-
+      }*/
+    canvas.style.width = "960px";
+        canvas.style.height = "600px";
+        
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
