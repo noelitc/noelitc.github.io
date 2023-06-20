@@ -126,7 +126,7 @@ Cast.
         canvas.style.height = "600px";
         
       loadingBar.style.display = "block";
-
+      var unityGame;
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -134,7 +134,7 @@ Cast.
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-           
+           unityGame = unityInstance;
             
           fullscreenButton.onclick = () => {
             unityInstance.SendMessage("ImageHandler", "HandleImageData", "World");
