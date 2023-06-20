@@ -134,9 +134,10 @@ Cast.
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-            unityInstance.SendMessage("ImageHandler", "HandleImageData", "World");
+           
             
           fullscreenButton.onclick = () => {
+            unityInstance.SendMessage("ImageHandler", "HandleImageData", "World");
             unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
