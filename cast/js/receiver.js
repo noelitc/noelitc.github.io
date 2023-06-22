@@ -347,9 +347,11 @@ bitmapFontText.updateText();
             
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
-  document.getElementById('message').innerHTML = customEvent.data;//.message;
+   
+     document.getElementById('message').innerHTML =  JSON.stringify(customEvent.data);//.message;
+ // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
-    bitmapFontText.text = customEvent.data;
+    bitmapFontText.text = JSON.stringify(customEvent.data);
   unityGame.SendMessage("ImageHandler", "HandleImageData", customEvent.data);
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
