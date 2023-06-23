@@ -135,7 +135,7 @@ Cast.
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
            unityGame = unityInstance;
-             unityInstance.SendMessage("ImageHandler", "HandleWholeImage", "world");
+           //  unityInstance.SendMessage("ImageHandler", "HandleWholeImage", "world");
           fullscreenButton.onclick = () => {
             unityInstance.SendMessage("ImageHandler", "HandleImageData", "World");
             unityInstance.SetFullscreen(1);
