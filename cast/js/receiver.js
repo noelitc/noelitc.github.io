@@ -354,7 +354,7 @@ function onMessageReceived(customEvent) {
     
     if (customEvent.data.num == -1)
         {
-            unityGame.SendMessage("ImageHandler", "HandleWholeImage", customEvent.data);
+            unityGame.SendMessage("ImageHandler", "HandleWholeImage", CopiedImageString);
            
         }
         else if (customEvent.data.num == 0)
