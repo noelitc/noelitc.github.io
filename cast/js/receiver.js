@@ -356,7 +356,7 @@ function onMessageReceived(customEvent) {
         {
              document.getElementById('message').innerHTML = "last "  ;
             //unityGame.SendMessage("ImageHandler", "HandleWholeImage", CopiedImageString);
-            unityGame.SendMessage("ImageHandler", "HandleWholeImage", "world");
+            unityGame.SendMessage("ImageHandler", "HandleImageData", "world");
           
         }
         else if (customEvent.data.num == 0)
