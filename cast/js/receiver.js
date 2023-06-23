@@ -348,7 +348,7 @@ bitmapFontText.updateText();
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    
-     document.getElementById('message').innerHTML +=  JSON.stringify(customEvent.data.num) = " " ;//.message;
+     document.getElementById('message').innerHTML +=  JSON.stringify(customEvent.data.num) + " " ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
     
