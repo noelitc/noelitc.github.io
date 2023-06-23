@@ -344,15 +344,31 @@ bitmapFontText.updateText();
                 img.x = app.renderer.screen.width / 2;
                 img.y = app.renderer.screen.height / 2;
             }
-            
+            var CopiedImageString="";
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    
      document.getElementById('message').innerHTML =  JSON.stringify(customEvent.data);//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
+    
+    if (customEvent.data.num == -1)
+        {
+            unityGame.SendMessage("ImageHandler", "HandleWholeImage", customEvent.data);
+           
+        }
+        else if (customEvent.data.num == 0)
+        {
+            CopiedImageString = "";
+            CopiedImageString += customEvent.data.message;
+        }
+        else 
+        {
+            CopiedImageString += customEvent.data.message;
+        }
     bitmapFontText.text = JSON.stringify(customEvent.data);
-  unityGame.SendMessage("ImageHandler", "HandleImageData", customEvent.data);
+    
+  //unityGame.SendMessage("ImageHandler", "HandleWholeImage", customEvent.data);
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
 
