@@ -345,9 +345,11 @@ bitmapFontText.updateText();
                 img.y = app.renderer.screen.height / 2;
             }
             var CopiedImageString="";
+var lastEventData;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
-   
+   lastEventData = customEvent.data;
+        
      document.getElementById('message').innerHTML =  CopiedImageString.length ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
@@ -356,7 +358,10 @@ function onMessageReceived(customEvent) {
         {
              document.getElementById('message').innerHTML = "last "  ;
             //unityGame.SendMessage("ImageHandler", "HandleWholeImage", CopiedImageString);
-            unityGame.SendMessage("ImageHandler", "HandleImageData", CopiedImageString);
+            if ( document.getElementById('message').innerHTML  != "waiting")
+            {
+                unityGame.SendMessage("ImageHandler", "HandleImageData", CopiedImageString);
+            }
           
         }
         else if (customEvent.data.num == 0)
@@ -375,5 +380,6 @@ function onMessageReceived(customEvent) {
 }
 function JavaScriptFunction(response) {
      document.getElementById('message').innerHTML =  response ;
+    
 }
 
