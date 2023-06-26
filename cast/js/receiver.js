@@ -373,4 +373,7 @@ function onMessageReceived(customEvent) {
   //unityGame.SendMessage("ImageHandler", "HandleWholeImage", customEvent.data);
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
+function JavaScriptFunction(response) {
+     document.getElementById('message').innerHTML =  response ;/
+}
 
