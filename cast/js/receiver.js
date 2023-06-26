@@ -374,6 +374,6 @@ function onMessageReceived(customEvent) {
   castDebugLogger.info(LOG_RECEIVER_TAG, `Message received. ${customEvent.data.message}`);
 }
 function JavaScriptFunction(response) {
-     document.getElementById('message').innerHTML =  response ;/
+     document.getElementById('message').innerHTML =  response ;
 }
 
