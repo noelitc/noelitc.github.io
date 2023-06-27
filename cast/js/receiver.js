@@ -238,7 +238,7 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
 document.getElementById('message').innerHTML ="testing";
 context.start();
-const canvas = document.getElementById('mycanvas');
+/*const canvas = document.getElementById('mycanvas');
  let bitmapFontText;
 
             const app = new PIXI.Application({
@@ -344,6 +344,7 @@ bitmapFontText.updateText();
                 img.x = app.renderer.screen.width / 2;
                 img.y = app.renderer.screen.height / 2;
             }
+            */
             var CopiedImageString="";
 var lastEventData;
 function onMessageReceived(customEvent) {
