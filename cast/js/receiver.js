@@ -354,7 +354,12 @@ function onMessageReceived(customEvent) {
      document.getElementById('message').innerHTML =  CopiedImageString.length ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
-    
+    if (customEvent.data.description == "startTask")
+    {
+          unityGame.SendMessage("GameManager", "StartTask", "");
+            return;
+    }
+ 
     if (customEvent.data.num == -1)
         {
              document.getElementById('message').innerHTML = "last "  ;
