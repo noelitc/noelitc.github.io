@@ -356,12 +356,12 @@ function onMessageReceived(customEvent) {
  // bitmapFontText.text = customEvent.data.message;
     if (customEvent.data.description == "startTask")
     {
-          unityGame.SendMessage("GameManager", "StartTask", "");
+          unityGame.SendMessage("GameManager", "StartTask", customEvent.data.message);
             return;
     }
      if (customEvent.data.description == "SetName")
     {
-          unityGame.SendMessage("GameManager", "SetName", "customEvent.data.message");
+          unityGame.SendMessage("GameManager", "SetName", customEvent.data.message);
         return;
     }
  
