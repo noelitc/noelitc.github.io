@@ -359,6 +359,11 @@ function onMessageReceived(customEvent) {
           unityGame.SendMessage("GameManager", "StartTask", "");
             return;
     }
+     if (customEvent.data.description == "SetName")
+    {
+          unityGame.SendMessage("GameManager", "SetName", "customEvent.data.message");
+        return;
+    }
  
     if (customEvent.data.num == -1)
         {
