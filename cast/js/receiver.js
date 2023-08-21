@@ -347,6 +347,7 @@ bitmapFontText.updateText();
             */
             var CopiedImageString="";
 var lastEventData;
+var ImageCounter=0;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
@@ -369,9 +370,15 @@ function onMessageReceived(customEvent) {
           unityGame.SendMessage("GameManager", "SetName", customEvent.data.message);
         return;
     }
- 
+    
     if (customEvent.data.num == -1)
         {
+             if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleImageDataPart", CopiedImageString);
+                }
+                CopiedImageString="";
+        
              document.getElementById('message').innerHTML = "last "  ;
             //unityGame.SendMessage("ImageHandler", "HandleWholeImage", CopiedImageString);
             if ( document.getElementById('message').innerHTML  != "waiting")
@@ -388,6 +395,16 @@ function onMessageReceived(customEvent) {
         else 
         {
             CopiedImageString += customEvent.data.message;
+ 
+            if (CopiedImageString.length > 5000 )
+            {
+                if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleImageDataPart", CopiedImageString);
+                }
+                CopiedImageString="";
+            }
+            
         }
     bitmapFontText.text = JSON.stringify(customEvent.data);
     
