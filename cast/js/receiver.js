@@ -358,6 +358,7 @@ function onMessageReceived(customEvent) {
       if (customEvent.data.description == "ImageIndex")
     {
           unityGame.SendMessage("ImageHandler", "SetPageIndex", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
           CopiedImageString="";
             return;
     }
