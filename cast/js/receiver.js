@@ -355,6 +355,12 @@ function onMessageReceived(customEvent) {
      document.getElementById('message').innerHTML =  CopiedImageString.length ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
+      if (customEvent.data.description == "ImageIndex")
+    {
+          unityGame.SendMessage("ImageHandler", "SetPageIndex", customEvent.data.message);
+          CopiedImageString="";
+            return;
+    }
     if (customEvent.data.description == "startTask")
     {
           unityGame.SendMessage("GameManager", "StartTask", customEvent.data.message);
