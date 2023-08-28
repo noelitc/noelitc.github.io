@@ -393,7 +393,7 @@ function onMessageReceived(customEvent) {
                 {
                     unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
                 }
-                CopiedImageString="";
+                CopiedSoundString="";
         
              document.getElementById('message').innerHTML = "last "  ;
             
