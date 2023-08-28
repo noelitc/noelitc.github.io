@@ -349,6 +349,7 @@ bitmapFontText.updateText();
 var CopiedSoundString="";
 var lastEventData;
 var ImageCounter=0;
+var totalAudio=0;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
@@ -393,7 +394,8 @@ function onMessageReceived(customEvent) {
                 {
                     unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
                 }
-              document.getElementById('message').innerHTML = "last " + CopiedSoundString.length + " "  ;
+              totalAudio+=CopiedSoundString.length;
+              document.getElementById('message').innerHTML = "last " + CopiedSoundString.length + " "  + totalAudio ;
                 CopiedSoundString="";
         
            
@@ -430,6 +432,8 @@ function onMessageReceived(customEvent) {
             {
                 if ( document.getElementById('message').innerHTML  != "waiting")
                 {
+                    totalAudio+=CopiedSoundString.length;
+                     document.getElementById('message').innerHTML = "" + CopiedSoundString.length + " "  + totalAudio ;
                     unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
                 }
                 CopiedSoundString="";
