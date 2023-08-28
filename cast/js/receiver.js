@@ -346,6 +346,7 @@ bitmapFontText.updateText();
             }
             */
             var CopiedImageString="";
+var CopiedSoundString="";
 var lastEventData;
 var ImageCounter=0;
 function onMessageReceived(customEvent) {
@@ -360,6 +361,13 @@ function onMessageReceived(customEvent) {
           unityGame.SendMessage("ImageHandler", "SetPageIndex", customEvent.data.message);
          document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
           CopiedImageString="";
+            return;
+    }
+     if (customEvent.data.description == "SoundIndex")
+    {
+          unityGame.SendMessage("ImageHandler", "SetSoundIndex", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
             return;
     }
     if (customEvent.data.description == "startTask")
@@ -377,7 +385,45 @@ function onMessageReceived(customEvent) {
           unityGame.SendMessage("GameManager", "SetName", customEvent.data.message);
         return;
     }
-    
+    if (customEvent.data.description == "audio")
+    {
+        if (customEvent.data.num == -1)
+        {
+             if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
+                }
+                CopiedImageString="";
+        
+             document.getElementById('message').innerHTML = "last "  ;
+            
+            if ( document.getElementById('message').innerHTML  != "waiting")
+            {
+                unityGame.SendMessage("ImageHandler", "HandleSoundData", CopiedSoundString);
+            }
+          
+        }
+        else if (customEvent.data.num == 0)
+        {
+            CopiedSoundString = "";
+            CopiedSoundString += customEvent.data.message;
+        }
+        else 
+        {
+            CopiedSoundString += customEvent.data.message;
+ 
+            if (CopiedSoundString.length > 5000 )
+            {
+                if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
+                }
+                CopiedSoundString="";
+            }
+            
+        }
+        return;
+    }
     if (customEvent.data.num == -1)
         {
              if ( document.getElementById('message').innerHTML  != "waiting")
