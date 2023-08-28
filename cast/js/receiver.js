@@ -416,9 +416,9 @@ function onMessageReceived(customEvent) {
                 CopiedSoundString="";
                 if ( document.getElementById('message').innerHTML  != "waiting")
                 {
-                    unityGame.SendMessage("ImageHandler", "HandleSoundData", CopiedImageString);
+                    unityGame.SendMessage("ImageHandler", "HandleSoundData", CopiedSoundString);
                 }
-                CopiedImageString="";
+                CopiedSoundString="";
             }
         }
         else 
