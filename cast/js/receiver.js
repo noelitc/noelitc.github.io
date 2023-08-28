@@ -407,6 +407,19 @@ function onMessageReceived(customEvent) {
         {
             CopiedSoundString = "";
             CopiedSoundString += customEvent.data.message;
+              if (CopiedSoundString.length < 5000 )
+            {
+                 if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleSoundDataPart", CopiedSoundString);
+                }
+                CopiedSoundString="";
+                if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleSoundData", CopiedImageString);
+                }
+                CopiedImageString="";
+            }
         }
         else 
         {
@@ -444,6 +457,19 @@ function onMessageReceived(customEvent) {
         {
             CopiedImageString = "";
             CopiedImageString += customEvent.data.message;
+           if (CopiedImageString.length < 5000 )
+            {
+                 if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleImageDataPart", CopiedImageString);
+                }
+                CopiedImageString="";
+                if ( document.getElementById('message').innerHTML  != "waiting")
+                {
+                    unityGame.SendMessage("ImageHandler", "HandleImageData", CopiedImageString);
+                }
+                CopiedImageString="";
+            }
         }
         else 
         {
