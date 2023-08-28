@@ -407,7 +407,7 @@ function onMessageReceived(customEvent) {
         {
             CopiedSoundString = "";
             CopiedSoundString += customEvent.data.message;
-              if (CopiedSoundString.length < 5000 )
+              if (CopiedSoundString.length < 1000 )
             {
                  if ( document.getElementById('message').innerHTML  != "waiting")
                 {
@@ -457,7 +457,7 @@ function onMessageReceived(customEvent) {
         {
             CopiedImageString = "";
             CopiedImageString += customEvent.data.message;
-           if (CopiedImageString.length < 5000 )
+           if (CopiedImageString.length < 1000 )
             {
                  if ( document.getElementById('message').innerHTML  != "waiting")
                 {
