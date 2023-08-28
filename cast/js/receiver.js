@@ -353,7 +353,10 @@ var totalAudio=0;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
-        
+       if ( document.getElementById('message').innerHTML  == "waiting")
+       {
+           return;
+       }
      document.getElementById('message').innerHTML =  CopiedImageString.length ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
