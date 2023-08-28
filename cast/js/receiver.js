@@ -395,7 +395,7 @@ function onMessageReceived(customEvent) {
                 }
                 CopiedSoundString="";
         
-             document.getElementById('message').innerHTML = "last "  ;
+             document.getElementById('message').innerHTML = "last " + CopiedSoundString.length + " "  ;
             
             if ( document.getElementById('message').innerHTML  != "waiting")
             {
