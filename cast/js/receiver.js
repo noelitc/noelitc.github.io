@@ -374,6 +374,13 @@ function onMessageReceived(customEvent) {
           CopiedSoundString="";
             return;
     }
+      if (customEvent.data.description == "SoundURL")
+    {
+          unityGame.SendMessage("ImageHandler", "SetAudioURL", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
+            return;
+    }
     if (customEvent.data.description == "startTask")
     {
           unityGame.SendMessage("GameManager", "StartTask", customEvent.data.message);
