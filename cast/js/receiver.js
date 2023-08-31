@@ -374,9 +374,39 @@ function onMessageReceived(customEvent) {
           CopiedSoundString="";
             return;
     }
+    
+  
       if (customEvent.data.description == "SoundURL")
     {
           unityGame.SendMessage("ImageHandler", "SetAudioURL", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
+            return;
+    }
+     if (customEvent.data.description == "TaskSoundIndex")
+    {
+          unityGame.SendMessage("ImageHandler", "SetTaskSoundIndex", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
+            return;
+    }
+     if (customEvent.data.description == "TaskSoundURL")
+    {
+          unityGame.SendMessage("ImageHandler", "SetTaskAudioURL", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
+            return;
+    }
+        if (customEvent.data.description == "TaskStringIndex")
+    {
+          unityGame.SendMessage("ImageHandler", "SetTaskStringIndex", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedSoundString="";
+            return;
+    }
+     if (customEvent.data.description == "Task")
+    {
+          unityGame.SendMessage("ImageHandler", "SetTaskString", customEvent.data.message);
          document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
           CopiedSoundString="";
             return;
