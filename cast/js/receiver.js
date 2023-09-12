@@ -360,6 +360,13 @@ function onMessageReceived(customEvent) {
      document.getElementById('message').innerHTML =  CopiedImageString.length ;//.message;
  // document.getElementById('message').innerHTML = customEvent.data;//.message;
  // bitmapFontText.text = customEvent.data.message;
+     if (customEvent.data.description == "Profile")
+    {
+          unityGame.SendMessage("ImageHandler", "SetProfileData", customEvent.data.message);
+         document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+          CopiedImageString="";
+            return;
+    }
       if (customEvent.data.description == "ImageIndex")
     {
           unityGame.SendMessage("ImageHandler", "SetPageIndex", customEvent.data.message);
