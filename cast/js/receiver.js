@@ -238,113 +238,7 @@ const CHANNEL = 'urn:x-cast:cast.unity.demo';
 context.addCustomMessageListener(CHANNEL, onMessageReceived);
 document.getElementById('message').innerHTML ="testing";
 context.start();
-/*const canvas = document.getElementById('mycanvas');
- let bitmapFontText;
 
-            const app = new PIXI.Application({
-                view: canvas,
-                width: window.innerWidth, 
-                height: window.innerHeight
-            });
-
-            console.log(PIXI.utils.TextureCache);
-
-            let loader = PIXI.Loader.shared;
-
-            loader.add("guy", "guy.json");
-            loader.add("bg", "sprite2.png");
-            loader.onProgress.add(handleLoadProgress);
-            loader.onLoad.add(handleLoadAsset);
-            loader.onError.add(handleLoadError);
-            loader.load(handleLoadComplete);
-          //  PIXI.sound.Sound.from({
-         //   url: 'bears_birthday_party.mp3',
-         //   autoPlay: true,
-         //   complete: function() {
-         //   console.log('Sound finished');
-       // }
-         //   });
-            let img;
-
-            function handleLoadProgress(loader, resource) {
-                console.log(loader.progress + "% loaded");
-            }
-
-            function handleLoadAsset(loader, resource) {
-                console.log("asset loaded " + resource.name);
-            }
-
-            function handleLoadError() {
-                console.error("load error");
-            }
-
-            function handleLoadComplete() {
-                let texture = loader.resources.guy.spritesheet;
-                img = new PIXI.AnimatedSprite(texture.animations.pixels_large);
-                img.anchor.x = 0.5;
-                img.anchor.y = 0.5;
-                app.stage.addChild(img);
-
-                img.animationSpeed = 0.1;
-                img.play();
-
-                img.onLoop = () => {
-                    console.log('loop');
-                }
-                img.onFrameChange = () => {
-                    console.log('currentFrame', img.currentFrame);
-                }
-                img.onComplete = () => {
-                    console.log('done');
-                }
-                const style = new PIXI.TextStyle({
-                                fontFamily: 'Arial',
-                                fontSize: 36,
-                                fontStyle: 'italic',
-                                fontWeight: 'bold',
-                                fill: ['#ffffff', '#00ff99'], // gradient
-                                stroke: '#4a1850',
-                                strokeThickness: 5,
-                                dropShadow: true,
-                                dropShadowColor: '#000000',
-                                dropShadowBlur: 4,
-                                dropShadowAngle: Math.PI / 6,
-                                dropShadowDistance: 6,
-                                wordWrap: true,
-                                wordWrapWidth: 440,
-                                lineJoin: 'round',
-                            });
-                let richText = new PIXI.Text('Welcome to ElfMonn', style);
-                richText.x = 50;
-                richText.y = 220;
-                
-                const bitstyle = new PIXI.TextStyle();
-                PIXI.BitmapFont.from("foo", bitstyle);
-
-// Apply the font to our text
-    bitmapFontText = new PIXI.BitmapText("Hello World", { fontName: "foo" });
-    bitmapFontText.x = 50;
-    bitmapFontText.y = 100;
-                bitstyle.fill = 'red';
-PIXI.BitmapFont.from("foo", bitstyle);
-bitmapFontText.text="Waiting....";
-// Update text
-bitmapFontText.updateText();
-
-    app.stage.addChild(bitmapFontText);
-
-
-                app.stage.addChild(richText);
-
-               
-                     app.ticker.add(animate);
-            
-                }
-            function animate() {
-                img.x = app.renderer.screen.width / 2;
-                img.y = app.renderer.screen.height / 2;
-            }
-            */
             var CopiedImageString="";
 var CopiedSoundString="";
 var lastEventData;
@@ -411,8 +305,21 @@ function onMessageReceived(customEvent) {
           CopiedSoundString="";
             return;
     }
+     if (customEvent.data.description == "Tasks")
+    {
+         
+        var taskObject = JSON.parse(customEvent.data.message);
+         for  (int i=0;i<taskObject.tasks.length;i++)
+        {
+            tasks[i] = taskObject.tasks[i];
+        }
+       //  document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+       //   CopiedSoundString="";
+            return;
+    }
      if (customEvent.data.description == "Task")
     {
+         
           unityGame.SendMessage("ImageHandler", "SetTaskString", customEvent.data.message);
          document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
           CopiedSoundString="";
