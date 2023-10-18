@@ -90,13 +90,14 @@ Cast.
             for (let i = 0; i < tasks.length; i++) {
                 const task = tasks[i];
 
-                const taskText = this.add.text(240, 140 + y, task, {
+                const taskText = this.add.text(300, 140 + y, task, {
                     font: '54px Arial',
                     fill: '#5B5452'
                 });
                 y = y + 50;
                 textObjects.push(taskText);
             }
+            y=0;
               for (let i = 0; i < daysOfWeek.length; i++) {
                 const daysStr = daysOfWeek[i] + " : ";
 
