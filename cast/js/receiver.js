@@ -247,16 +247,16 @@ var totalAudio=0;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
-
+ tasks[0]= "hello";
       if (customEvent.data.description == "tasks")
     {
-         
+         tasks[1]= "there";
         var taskObject = JSON.parse(customEvent.data.message);
          for  (var  i=0;i<taskObject.tasks.length;i++)
         {
             tasks[i] = taskObject.tasks[i];
         }
-       
+        tasks[2]= "here";
       return;
     }
        if ( document.getElementById('message').innerHTML  == "waiting")
