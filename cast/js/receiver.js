@@ -247,6 +247,19 @@ var totalAudio=0;
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
+
+      if (customEvent.data.description == "Tasks")
+    {
+         
+        var taskObject = JSON.parse(customEvent.data.message);
+         for  (int i=0;i<taskObject.tasks.length;i++)
+        {
+            tasks[i] = taskObject.tasks[i];
+        }
+       //  document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
+       //   CopiedSoundString="";
+            return;
+    }
        if ( document.getElementById('message').innerHTML  == "waiting")
        {
            return;
@@ -305,18 +318,7 @@ function onMessageReceived(customEvent) {
           CopiedSoundString="";
             return;
     }
-     if (customEvent.data.description == "Tasks")
-    {
-         
-        var taskObject = JSON.parse(customEvent.data.message);
-         for  (int i=0;i<taskObject.tasks.length;i++)
-        {
-            tasks[i] = taskObject.tasks[i];
-        }
-       //  document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
-       //   CopiedSoundString="";
-            return;
-    }
+   
      if (customEvent.data.description == "Task")
     {
          
