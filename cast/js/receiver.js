@@ -248,17 +248,16 @@ function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
 
-      if (customEvent.data.description == "Tasks")
+      if (customEvent.data.description == "tasks")
     {
          
         var taskObject = JSON.parse(customEvent.data.message);
-         for  (int i=0;i<taskObject.tasks.length;i++)
+         for  (var  i=0;i<taskObject.tasks.length;i++)
         {
             tasks[i] = taskObject.tasks[i];
         }
-       //  document.getElementById('response').innerHTML = "Setpage" + customEvent.data.message;
-       //   CopiedSoundString="";
-            return;
+       
+      return;
     }
        if ( document.getElementById('message').innerHTML  == "waiting")
        {
