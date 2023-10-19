@@ -82,7 +82,7 @@ Cast.
             const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
             backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
 
-            timer = this.add.text(20, 20, 'Time: 00:00', {
+            timer = this.add.text(340, 20, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#ffffff'
             });
@@ -90,7 +90,7 @@ Cast.
             for (let i = 0; i < tasks.length; i++) {
                 const task = tasks[i];
 
-                const taskText = this.add.text(340, 140 + y, task, {
+                const taskText = this.add.text(400, 140 + y, task, {
                     font: '54px Arial',
                     fill: '#5B5452'
                 });
