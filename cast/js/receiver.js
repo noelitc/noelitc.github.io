@@ -244,6 +244,12 @@ var CopiedSoundString="";
 var lastEventData;
 var ImageCounter=0;
 var totalAudio=0;
+// You can also periodically reset the idle reason to keep the app active
+function keepAlive() {
+  cast.framework.CastReceiverContext.getInstance().setIdleReason(null);
+  setTimeout(keepAlive, 60000); // Reset the idle reason every minute
+}
+keepAlive();
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
