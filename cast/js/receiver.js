@@ -29,7 +29,10 @@ import { AdsTracker, SenderTracker, ContentTracker } from './cast_analytics.js';
  * below.
  */
 
-
+window._setTimeout = window.setTimeout;
+window.setTimeout = function(a, b) {
+    // disable setTimeout so chromecast won't kill us after 5 minutes...
+};
 /*
  * Convenience variables to access the CastReceiverContext and PlayerManager.
  */
