@@ -77,7 +77,7 @@ Cast.
         function preload() {
             this.load.image('background', 'back.png');
         }
-        const backgroundImage  = null;
+        var backgroundImage  = null;
         function create() {
             backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
             backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
