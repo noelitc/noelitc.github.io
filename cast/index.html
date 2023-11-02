@@ -62,13 +62,13 @@ Cast.
     </div>
 
     <script>
-      const backgroundImage = document.getElementById('background-image');
+      const backgroundImageHTML = document.getElementById('background-image');
       const changeImageButton = document.getElementById('changeImage');
 
       // Function to change the image source
       function changeImageSource() {
         const dataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
-        backgroundImage.src = dataURL;
+        backgroundImageHTML.src = dataURL;
       }
 
       // Attach event listener to the button
@@ -116,9 +116,9 @@ Cast.
         }
         var backgroundImage  = null;
         function create() {
-            //backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
-            //backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
-
+            backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
+           // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
+            backgroundImage.setScale(0.2, 0.2);
             timer = this.add.text(340, 20, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#ffffff'
