@@ -33,10 +33,47 @@ Cast.
     <title>Elfmonn </title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+     <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
+      }
+      #background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+      }
+      .container {
+        text-align: center;
+        color: #fff;
+        padding: 100px;
+      }
+    </style>
 </head>
 
 <body>
-    
+     <img id="background-image" src="" alt="Background" />
+    <div class="container">
+      <h2>Your Website Content</h2>
+      <button id="changeImage">Change Image</button>
+    </div>
+
+    <script>
+      const backgroundImage = document.getElementById('background-image');
+      const changeImageButton = document.getElementById('changeImage');
+
+      // Function to change the image source
+      function changeImageSource() {
+        const dataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+        backgroundImage.src = dataURL;
+      }
+
+      // Attach event listener to the button
+      changeImageButton.addEventListener('click', changeImageSource);
+    </script>
     <script>
       
       
@@ -79,8 +116,8 @@ Cast.
         }
         var backgroundImage  = null;
         function create() {
-            backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
-            backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
+            //backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
+            //backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
 
             timer = this.add.text(340, 20, 'Time: 00:00', {
                 font: '54px Arial',
