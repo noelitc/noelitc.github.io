@@ -274,6 +274,10 @@ function onMessageReceived(customEvent) {
         {
            
                 CopiedImageString += customEvent.data.message;
+
+             const dataURL = 'data:image/png;base64,' + CopiedImageString;
+            backgroundImageHTML.src = dataURL;
+            
                /*  const newBackgroundTexture = game.textures.addImage('newBackground', 'data:image/png;base64,' + CopiedImageString);
                   backgroundImage.setTexture('newBackground');
             const desiredWidth = window.innerWidth;
@@ -286,7 +290,7 @@ function onMessageReceived(customEvent) {
           backgroundImage.displayWidth = desiredWidth;
           backgroundImage.displayHeight = newHeight;*/
 
-             game.textures.once('addtexture-brain', () =>
+           /*  game.textures.once('addtexture-brain', () =>
         {
             game.add.image(400, 300, 'brain');
         });
@@ -300,7 +304,7 @@ function onMessageReceived(customEvent) {
         {
             console.log('base64 image loaded');
         });
-     game.textures.addBase64('brain', ImageData);
+     game.textures.addBase64('brain', ImageData);*/
        // game.textures.addBase64('brain', CopiedImageString);
               return;
           
