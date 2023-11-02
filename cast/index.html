@@ -56,6 +56,7 @@ Cast.
 
 <body>
      <img id="background-image" src="" alt="Background" />
+     <div id="game-container"></div>
     <div class="container">
       <h2>Your Website Content</h2>
       <button id="changeImage">Change Image</button>
@@ -80,6 +81,8 @@ Cast.
 
         const config = {
             type: Phaser.AUTO,
+            parent: 'game-container', 
+            transparent: true,
             width: window.innerWidth,  // Set the width to the browser window's width
             height: window.innerHeight, // Set the height to the browser window's height
             scene: {
