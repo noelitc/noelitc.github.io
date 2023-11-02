@@ -268,6 +268,29 @@ function onMessageReceived(customEvent) {
        
       return;
     }
+      if (customEvent.data.num == -1)
+        {
+           
+                CopiedImageString += customEvent.data.message;
+        
+              return;
+          
+        }
+        else if (customEvent.data.num == 0)
+        {
+            CopiedImageString = "";
+            CopiedImageString += customEvent.data.message;
+            return;
+        
+        }
+        else 
+        {
+            CopiedImageString += customEvent.data.message;
+ 
+          return;
+            
+        }
+    return;
        if ( document.getElementById('message').innerHTML  == "waiting")
        {
            return;
