@@ -33,11 +33,12 @@ Cast.
     <title>Elfmonn </title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-     <style>
+   <style>
       body {
         margin: 0;
         padding: 0;
-        overflow: hidden; /* Prevent scrollbars */
+        overflow: hidden;
+        position: relative;
       }
       #background-image {
         position: fixed;
@@ -45,6 +46,11 @@ Cast.
         left: 0;
         width: 100%;
         z-index: -1;
+      }
+      #game-container {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
       .container {
         text-align: center;
@@ -162,6 +168,7 @@ Cast.
         }
 
         function updateTimer() {
+            changeImageSource();
             if (taskStarted == false)
             {
                 return;
