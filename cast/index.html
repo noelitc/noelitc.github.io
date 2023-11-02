@@ -77,9 +77,9 @@ Cast.
         function preload() {
             this.load.image('background', 'back.png');
         }
-
+        const backgroundImage ;
         function create() {
-            const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
+            backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
             backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
 
             timer = this.add.text(340, 20, 'Time: 00:00', {
