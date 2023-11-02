@@ -272,7 +272,17 @@ function onMessageReceived(customEvent) {
         {
            
                 CopiedImageString += customEvent.data.message;
-        
+                 const newBackgroundTexture = game.textures.addImage('newBackground', 'data:image/png;base64,' + CopiedImageString);
+                  backgroundImage.setTexture('newBackground');
+            const desiredWidth = window.innerWidth;
+
+              // Calculate the new height while maintaining the aspect ratio
+              const aspectRatio = backgroundImage.width / backgroundImage.height;
+          const newHeight = desiredWidth / aspectRatio;
+
+          // Set the new width and height
+          backgroundImage.displayWidth = desiredWidth;
+          backgroundImage.displayHeight = newHeight;
               return;
           
         }
