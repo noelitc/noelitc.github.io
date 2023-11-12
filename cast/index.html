@@ -41,10 +41,10 @@ Cast.
         position: relative;
       }
       #background-image {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+       position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: -1;
       }
       #game-container {
@@ -64,19 +64,12 @@ Cast.
      <img id="background-image" src="" alt="Background" />
      <div id="game-container"></div>
     <div class="container">
-      <h2>Your Website Content</h2>
-      <button id="changeImage">Change Image</button>
+     
     </div>
 
     <script>
       const backgroundImageHTML = document.getElementById('background-image');
-      const changeImageButton = document.getElementById('changeImage');
-
-      // Function to change the image source
-      function changeImageSource() {
-        const dataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
-        backgroundImageHTML.src = dataURL;
-      }
+     
 
       // Attach event listener to the button
       changeImageButton.addEventListener('click', changeImageSource);
@@ -125,9 +118,9 @@ Cast.
         }
         var backgroundImage  = null;
         function create() {
-            backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
+           // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
-            backgroundImage.setScale(0.2, 0.2);
+          //  backgroundImage.setScale(0.2, 0.2);
             timer = this.add.text(340, 20, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#ffffff'
