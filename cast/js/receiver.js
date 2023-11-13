@@ -258,7 +258,7 @@ keepAlive();
 function onMessageReceived(customEvent) {
   document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
    lastEventData = customEvent.data;
-    
+     taskStarted=true;
       if (customEvent.data.description == "tasks")
     {
         taskStarted=true;
