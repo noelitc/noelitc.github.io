@@ -121,8 +121,8 @@ Cast.
         ];
         const textObjects = [];
         function preload() {
-            game.load.image('background', 'back.png');
-             game.load.audio('audio', ['audio.mp3', 'audio.ogg']);
+            this.load.image('background', 'back.png');
+             this.load.audio('audio', ['audio.mp3', 'audio.ogg']);
 
              // this.load.add('customFont', 'customFont.ttf');
               //this.load.audio('audio','audio.mp3' );
@@ -131,7 +131,7 @@ Cast.
         var music= null;
         function create() {
        //   music = game.add.audio('audio');
-             music = game.add.audio('audio');
+             music = this.add.audio('audio');
 
             music.play();
        //     music.play();
