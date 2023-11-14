@@ -62,6 +62,12 @@ Cast.
 </head>
 
 <body>
+    <audio autoplay loop>
+  
+  <source src="audio" type="audio/mpeg">
+    </audio>
+  Your browser does not support the audio element.
+</audio>
      <img id="background-image" src="" alt="Background" />
      <div id="game-container"></div>
     <div class="container">
@@ -117,14 +123,14 @@ Cast.
         function preload() {
             this.load.image('background', 'back.png');
              // this.load.add('customFont', 'customFont.ttf');
-              this.load.audio('audio','audio.mp3' );
+              //this.load.audio('audio','audio.mp3' );
         }
         var backgroundImage  = null;
         var music= null;
         function create() {
-          music = game.add.audio('audio');
+       //   music = game.add.audio('audio');
 
-            music.play();
+       //     music.play();
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
