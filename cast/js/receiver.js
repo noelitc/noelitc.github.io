@@ -262,11 +262,11 @@ function onMessageReceived(customEvent) {
       if (customEvent.data.description == "tasks")
     {
         taskStarted=true;
-        var taskObject = JSON.parse(customEvent.data.message);
+      /*  var taskObject = JSON.parse(customEvent.data.message);
          for  (var  i=0;i<taskObject.tasks.length;i++)
         {
             tasks[i] = taskObject.tasks[i];
-        }
+        }*/
        
       return;
     }
