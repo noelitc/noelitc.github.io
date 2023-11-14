@@ -88,6 +88,9 @@ Cast.
             transparent: true,
             width: window.innerWidth,  // Set the width to the browser window's width
             height: window.innerHeight, // Set the height to the browser window's height
+            audio: {
+                disableWebAudio: true
+            }
             scene: {
                 preload: preload,
                 create: create,
@@ -127,11 +130,11 @@ Cast.
         var backgroundImage  = null;
         var music= null;
         function create() {
-            taskStarted=true;
+          
        //   music = game.add.audio('audio');
-            //  music = this.sound.add('audio');
+              music = this.sound.add('audio');
 
-          //  music.play();
+           music.play();
        //     music.play();
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
