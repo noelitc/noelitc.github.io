@@ -117,9 +117,10 @@ Cast.
         function preload() {
             this.load.image('background', 'back.png');
               this.load.add('customFont', 'customFont.ttf');
-              this.load.audio('audio','audio.mp3' ]);
+              this.load.audio('audio','audio.mp3' );
         }
         var backgroundImage  = null;
+        var music= null;
         function create() {
           music = game.add.audio('audio');
 
