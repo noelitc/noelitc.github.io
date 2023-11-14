@@ -65,7 +65,7 @@ Cast.
    
 
 </audio>
-     <img id="background-image" src="black.png" alt="Background" />
+     <img id="background-image" src="Black.png" alt="Background" />
      <div id="game-container"></div>
     <div class="container">
      
@@ -99,7 +99,7 @@ Cast.
         };
 
         const game = new Phaser.Game(config);
-        let taskStarted = false;
+        let taskStarted = true;
         let timer;
         let minutes = 0;
         let seconds = 0;
@@ -141,7 +141,7 @@ Cast.
           //  backgroundImage.setScale(0.2, 0.2);
             timer = this.add.text(100, 20, 'Time: 00:00', {
                 font: '54px Arial',
-                fill: '#5B5452'
+                fill: '#FFFFFF'
             });
            /* let y = 0;
             for (let i = 0; i < tasks.length; i++) {
@@ -179,7 +179,7 @@ Cast.
         }
 
         function updateTimer() {
-           // taskStarted=true;
+             taskStarted=true;
          //   changeImageSource();
             if (taskStarted == false)
             {
