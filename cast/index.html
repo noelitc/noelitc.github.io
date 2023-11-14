@@ -116,7 +116,7 @@ Cast.
         const textObjects = [];
         function preload() {
             this.load.image('background', 'back.png');
-              this.load.add('customFont', 'customFont.ttf');
+             // this.load.add('customFont', 'customFont.ttf');
               this.load.audio('audio','audio.mp3' );
         }
         var backgroundImage  = null;
@@ -129,7 +129,7 @@ Cast.
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
             timer = this.add.text(window.innerWidth -100, 20, 'Time: 00:00', {
-                font: 'CustomFont',
+                font: '54px Arial',
                 fill: '#ffffff'
             });
            /* let y = 0;
