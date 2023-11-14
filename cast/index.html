@@ -118,8 +118,8 @@ Cast.
         ];
         const textObjects = [];
         function preload() {
-            game.load.image('background', 'back.png');
-             game.load.audio('audio', ['audio.mp3', 'audio.ogg']);
+            this.load.image('background', 'back.png');
+             this.load.audio('audio', ['audio.mp3', 'audio.ogg']);
 
              // this.load.add('customFont', 'customFont.ttf');
               //this.load.audio('audio','audio.mp3' );
@@ -128,14 +128,14 @@ Cast.
         var music= null;
         function create() {
        //   music = game.add.audio('audio');
-             const music = game.sound.add('audio');
+             const music = this.sound.add('audio');
 
             music.play();
        //     music.play();
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
-            timer = game.add.text(window.innerWidth -100, 20, 'Time: 00:00', {
+            timer = this.add.text(window.innerWidth -100, 20, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#ffffff'
             });
