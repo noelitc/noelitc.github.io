@@ -116,20 +116,25 @@ Cast.
         const textObjects = [];
         function preload() {
             this.load.image('background', 'back.png');
+              this.load.add('customFont', 'customFont.ttf');
+              this.load.audio('audio','audio.mp3' ]);
         }
         var backgroundImage  = null;
         function create() {
+          music = game.add.audio('audio');
+
+            music.play();
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
-            timer = this.add.text(340, 20, 'Time: 00:00', {
-                font: '54px Arial',
+            timer = this.add.text(window.innerWidth -100, 20, 'Time: 00:00', {
+                font: 'CustomFont',
                 fill: '#ffffff'
             });
-            let y = 0;
+           /* let y = 0;
             for (let i = 0; i < tasks.length; i++) {
-                const task = tasks[i];
-/*
+               const task = tasks[i];
+
                 const taskText = this.add.text(400, 140 + y, task, {
                     font: '54px Arial',
                     fill: '#5B5452'
@@ -141,14 +146,14 @@ Cast.
               for (let i = 0; i < daysOfWeek.length; i++) {
                 const daysStr = daysOfWeek[i] + " : ";
 
-              /*  const taskText = this.add.text(40, 140 + y, daysStr, {
+               const taskText = this.add.text(40, 140 + y, daysStr, {
                     font: '54px Arial',
                     fill: '#5B5452'
-                });*/
+                });
                 y = y + 50;
               
             }
-           
+           */
 
             this.time.addEvent({
                 delay: 1000,
@@ -173,10 +178,10 @@ Cast.
             } else {
                 seconds++;
             }
-            for (let i = 0; i < textObjects.length; i++)
+          /*  for (let i = 0; i < textObjects.length; i++)
             {
                 //textObjects[i].setText(tasks[i]);
-            }
+            }*/
             
             
             timer.setText(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
