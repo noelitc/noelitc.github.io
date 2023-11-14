@@ -256,7 +256,8 @@ function keepAlive() {
 }
 keepAlive();
 function onMessageReceived(customEvent) {
-  document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
+ // document.getElementById('cast-media-player').setAttribute("data-content", `${customEvent.data.message}`);
+     document.getElementById('cast-media-player').setAttribute("data-content", `audio.ogg`);
    lastEventData = customEvent.data;
      taskStarted=true;
       if (customEvent.data.description == "tasks")
