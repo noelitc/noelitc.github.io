@@ -103,6 +103,7 @@ Cast.
         const game = new Phaser.Game(config);
         let taskStarted = true;
         let timer;
+        let timerText;
         let minutes = 0;
         let seconds = 0;
         const tasks = [
@@ -124,6 +125,7 @@ Cast.
         const textObjects = [];
         function preload() {
             this.load.image('background', 'back.png');
+             this.load.bitmapFont('gothic', 'gothic.png', 'gothic.xml');
             // this.load.audio('audio', ['audio.mp3', 'audio.ogg']);
 
              // this.load.add('customFont', 'customFont.ttf');
@@ -141,6 +143,11 @@ Cast.
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
+
+              timerText = this.add.bitmapText(400, 300, 'gothic', 'Time: 00:00', 38)
+            .setOrigin(0.5)
+            .setCenterAlign();
+            
             timer = this.add.text(100, 120, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#FFFFFF'
@@ -200,6 +207,7 @@ Cast.
             
             
             timer.setText(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+              timerText.setText(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
 
         }
    
