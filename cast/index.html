@@ -82,7 +82,7 @@ Cast.
     </script>
     <script>
       
-      
+    
 
         const config = {
             type: Phaser.AUTO,
@@ -122,6 +122,7 @@ Cast.
             "Friday"
 
         ];
+   
         const textObjects = [];
         function preload() {
             this.load.image('background', 'back.png');
@@ -144,9 +145,8 @@ Cast.
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
 
-              timerText = this.add.bitmapText((window.innerWidth, 300, 'gothic', 'Time: 00:00', 64)
-            .setOrigin(0.5)
-            .setCenterAlign();
+              timerText = this.add.bitmapText((window.innerWidth, 300, 'gothic', 'Time: 00:00', 64);
+         
             
             timer = this.add.text(100, 120, '', {
                 font: '54px Arial',
@@ -225,6 +225,21 @@ Cast.
     <cast-media-player id="cast-media-player"></cast-media-player>
   </main>
   <footer>
+      <script>
+            const castMediaPlayer = document.getElementById('cast-media-player');
+
+// Define the media URL
+const mediaURL = 'audio.mp3';
+
+// Create a media object with the media content type and URL
+const mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
+
+// Create a media request
+const request = new chrome.cast.media.LoadRequest(mediaInfo);
+
+// Load the media on the cast media player
+castMediaPlayer.loadMedia(request);
+      </script>
     <script src="js/receiver.js" type="module"></script>
   </footer>
 </body>
