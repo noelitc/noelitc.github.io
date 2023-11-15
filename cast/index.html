@@ -42,8 +42,8 @@ Cast.
       }
        #background-image {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 50%;
+        left: 50%;
         width: 100%;
         z-index: -1;
       }
@@ -88,9 +88,9 @@ Cast.
             transparent: true,
             width: window.innerWidth,  // Set the width to the browser window's width
             height: window.innerHeight, // Set the height to the browser window's height
-            audio: {
-                disableWebAudio: true
-            },
+            //audio: {
+           //     disableWebAudio: true
+          //  },
             scene: {
                 preload: preload,
                 create: create,
@@ -122,7 +122,7 @@ Cast.
         const textObjects = [];
         function preload() {
             this.load.image('background', 'back.png');
-             this.load.audio('audio', ['audio.mp3', 'audio.ogg']);
+            // this.load.audio('audio', ['audio.mp3', 'audio.ogg']);
 
              // this.load.add('customFont', 'customFont.ttf');
               //this.load.audio('audio','audio.mp3' );
@@ -132,14 +132,14 @@ Cast.
         function create() {
           
        //   music = game.add.audio('audio');
-              music = this.sound.add('audio');
+             // music = this.sound.add('audio');
 
          //  music.play();
        //     music.play();
            // backgroundImage= this.add.image(0, 0, 'background').setOrigin(0, 0);
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
-            timer = this.add.text(100, 20, 'Time: 00:00', {
+            timer = this.add.text(100, 120, 'Time: 00:00', {
                 font: '54px Arial',
                 fill: '#FFFFFF'
             });
