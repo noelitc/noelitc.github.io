@@ -144,11 +144,11 @@ Cast.
            // backgroundImage.setScale(window.innerWidth / backgroundImage.width, window.innerHeight / backgroundImage.height);
           //  backgroundImage.setScale(0.2, 0.2);
 
-              timerText = this.add.bitmapText(400, 300, 'gothic', 'Time: 00:00', 38)
+              timerText = this.add.bitmapText((window.innerWidth, 300, 'gothic', 'Time: 00:00', 64)
             .setOrigin(0.5)
             .setCenterAlign();
             
-            timer = this.add.text(100, 120, 'Time: 00:00', {
+            timer = this.add.text(100, 120, '', {
                 font: '54px Arial',
                 fill: '#FFFFFF'
             });
@@ -207,6 +207,7 @@ Cast.
             
             
             timer.setText(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+            timer.setText(``);
               timerText.setText(`Time: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
 
         }
