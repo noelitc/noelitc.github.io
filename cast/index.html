@@ -232,7 +232,7 @@ Cast.
   <footer>
       <script>
           const context1 = cast.framework.CastReceiverContext.getInstance();
-const playerManager = context1.getPlayerManager();
+const playerManager1 = context1.getPlayerManager();
          playerManager1.setMediaElement(document.getElementById('audio'));
 
 // Load the media on the player
@@ -242,7 +242,7 @@ const loadRequest1 = new chrome.cast.media.LoadRequest(mediaInfo1);
 // Autoplay the content when available
 loadRequest1.autoplay = true;
 
-playerManager1.load(loadRequest);
+playerManager1.load(loadRequest1);
 
 // Start playback
 playerManager1.play();
