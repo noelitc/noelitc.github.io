@@ -226,6 +226,10 @@ Cast.
   <main hidden>
     <cast-media-player id="cast-media-player"></cast-media-player>
   </main>
+    <iframe src="silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+    <audio id="player" autoplay loop>
+    <source src="audio.mp3" type="audio/mp3">
+</audio>
   <footer>
       <script>
        /*   const context1 = cast.framework.CastReceiverContext.getInstance();
