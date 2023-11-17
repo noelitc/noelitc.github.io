@@ -231,19 +231,21 @@ Cast.
   </main>
   <footer>
       <script>
-         playerManager.setMediaElement(document.getElementById('audio'));
+          const context1 = cast.framework.CastReceiverContext.getInstance();
+const playerManager = context.getPlayerManager();
+         playerManager1.setMediaElement(document.getElementById('audio'));
 
 // Load the media on the player
-const mediaInfo = new chrome.cast.media.MediaInfo('audio.ogg', 'audio/ogg');
-const loadRequest = new chrome.cast.media.LoadRequest(mediaInfo);
+const mediaInfo1 = new chrome.cast.media.MediaInfo('audio.ogg', 'audio/ogg');
+const loadRequest1 = new chrome.cast.media.LoadRequest(mediaInfo1);
 
 // Autoplay the content when available
-loadRequest.autoplay = true;
+loadRequest1.autoplay = true;
 
-playerManager.load(loadRequest);
+playerManager1.load(loadRequest);
 
 // Start playback
-playerManager.play();
+playerManager1.play();
       </script>
     <script src="js/receiver.js" type="module"></script>
   </footer>
