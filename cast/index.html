@@ -68,10 +68,7 @@ Cast.
 <body>
    
 
-<audio id="audio" controls>
-  <source src="audio.ogg" type="audio/ogg">
-  Your browser does not support the audio element.
-</audio>
+
      <img id="background-image" src="Black.png" alt="Background" />
      <div id="game-container"></div>
     <div class="container">
@@ -226,12 +223,12 @@ Cast.
             
         </script>
 
-  <main >
+  <main hidden>
     <cast-media-player id="cast-media-player"></cast-media-player>
   </main>
   <footer>
       <script>
-          const context1 = cast.framework.CastReceiverContext.getInstance();
+       /*   const context1 = cast.framework.CastReceiverContext.getInstance();
 const playerManager1 = context1.getPlayerManager();
          playerManager1.setMediaElement(document.getElementById('audio'));
 
@@ -245,7 +242,7 @@ loadRequest1.autoplay = true;
 playerManager1.load(loadRequest1);
 
 // Start playback
-playerManager1.play();
+playerManager1.play();*/
       </script>
     <script src="js/receiver.js" type="module"></script>
   </footer>
