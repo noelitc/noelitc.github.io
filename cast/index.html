@@ -68,6 +68,9 @@ Cast.
 <body>
    
 
+<audio id="audio" controls>
+  <source src="audio.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
 </audio>
      <img id="background-image" src="Black.png" alt="Background" />
      <div id="game-container"></div>
@@ -228,19 +231,19 @@ Cast.
   </main>
   <footer>
       <script>
-           /* const castMediaPlayer = document.getElementById('cast-media-player');
+         playerManager.setMediaElement(document.getElementById('audio'));
 
-// Define the media URL
-const mediaURL = 'audio.mp3';
+// Load the media on the player
+const mediaInfo = new chrome.cast.media.MediaInfo('audio.ogg', 'audio/ogg');
+const loadRequest = new chrome.cast.media.LoadRequest(mediaInfo);
 
-// Create a media object with the media content type and URL
-const mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
+// Autoplay the content when available
+loadRequest.autoplay = true;
 
-// Create a media request
-const request = new chrome.cast.media.LoadRequest(mediaInfo);
+playerManager.load(loadRequest);
 
-// Load the media on the cast media player
-castMediaPlayer.loadMedia(request);*/
+// Start playback
+playerManager.play();
       </script>
     <script src="js/receiver.js" type="module"></script>
   </footer>
