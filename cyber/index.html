@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Linux Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <h2>Introduction to `ls` and `cat` Commands</h2>
+            <p>The `ls` command is used to list the contents of a directory. It will show you all files and directories in the current directory.</p>
+            <p>The `cat` command is used to concatenate and display the contents of files. For example, `cat file1.txt` will display the content of `file1.txt`.</p>
+            <div id="completionMessage" class="completion-message hidden">
+                <p>Congratulations! You've successfully used the `ls` and `cat` commands.</p>
+            </div>
+        </div>
+        <div class="terminal">
+            <div id="output" class="output"></div>
+            <div class="input-line">
+                <span id="prompt">user@fake-terminal:~$</span>
+                <input type="text" id="input" autofocus>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
