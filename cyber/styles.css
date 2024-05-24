@@ -11,10 +11,10 @@ body {
 .container {
     display: flex;
     width: 80%;
+    height: 60%;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .intro {
@@ -22,12 +22,14 @@ body {
     padding: 20px;
     background-color: #fafafa;
     border-right: 1px solid #ddd;
+    overflow-y: auto; /* Add scrollbar if needed */
 }
 
 .terminal {
     width: 60%;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Hide overflow */
 }
 
 .output {
@@ -36,7 +38,7 @@ body {
     background-color: #000;
     color: #0f0;
     font-family: monospace;
-    overflow-y: auto;
+    overflow-y: auto; /* Add scrollbar if needed */
 }
 
 .input-line {
